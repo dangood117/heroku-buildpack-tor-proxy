@@ -183,7 +183,7 @@ cat >>"${HEROKU_BUILD_DIR}/tor/bin/${TOR_COMMAND}" <<EOF
 #!/usr/bin/env bash
 
 echo "Writing the configuration file"
-echo "HTTPTunnelPort '$PORT'"
+echo "HTTPTunnelPort '$'PORT"
 
 if ! grep -q "SOCKSPort ${TOR_PROXY_PORT}" ${TOR_CONFIG_FILE}; then
   echo "SOCKSPort ${TOR_PROXY_PORT}" >> ${TOR_CONFIG_FILE}
@@ -197,7 +197,7 @@ if ! grep -q "HashedControlPassword ${TOR_HASHED_PASS}" ${TOR_CONFIG_FILE}; then
   echo "HashedControlPassword ${TOR_HASHED_PASS}" >> ${TOR_CONFIG_FILE}
 fi
 
-echo "HTTPTunnelPort '$PORT'" >> ${TOR_CONFIG_FILE}
+echo "HTTPTunnelPort '$'PORT" >> ${TOR_CONFIG_FILE}
 
 echo "Launching the program: Tor Proxy"
 
