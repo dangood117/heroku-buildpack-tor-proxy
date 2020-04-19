@@ -186,7 +186,7 @@ echo "Writing the configuration file"
 echo "HTTPTunnelPort \$PORT"
 
 if ! grep -q "SOCKSPort ${TOR_PROXY_PORT}" ${TOR_CONFIG_FILE}; then
-  echo "SOCKSPort ${TOR_PROXY_PORT}" >> ${TOR_CONFIG_FILE}
+  echo "SOCKSPort \$PORT" >> ${TOR_CONFIG_FILE}
 fi
 
 if ! grep -q "ControlPort ${TOR_CONTROL_PORT}" ${TOR_CONFIG_FILE}; then
@@ -197,7 +197,7 @@ if ! grep -q "HashedControlPassword ${TOR_HASHED_PASS}" ${TOR_CONFIG_FILE}; then
   echo "HashedControlPassword ${TOR_HASHED_PASS}" >> ${TOR_CONFIG_FILE}
 fi
 
-echo "HTTPTunnelPort \$PORT" >> ${TOR_CONFIG_FILE}
+#echo "HTTPTunnelPort \$PORT" >> ${TOR_CONFIG_FILE}
 
 echo "Launching the program: Tor Proxy"
 
